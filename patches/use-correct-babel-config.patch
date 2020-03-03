@@ -1,0 +1,14 @@
+diff --git a/webpack.config.js b/webpack.config.js
+index 91ae7226..04082791 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -170,7 +170,8 @@ module.exports = (env, argv) => ({
+         include: [path.resolve(__dirname, "src")],
+         // Exclude JS assets in node_modules because they are already transformed and often big.
+         exclude: [path.resolve(__dirname, "node_modules")],
+-        loader: "babel-loader"
++        loader: "babel-loader",
++        options: babelConfig
+       },
+       {
+         test: /\.(scss|css)$/,
