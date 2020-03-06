@@ -5,12 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
 import configs from "../../hubs/src/utils/configs";
 
+const maxRoomCap = configs.feature("max_room_cap") || 50;
+
 function groupFeaturedRooms(featuredRooms) {
   if (!featuredRooms) {
     return [];
   }
 
-  const groups = [];
+  let groups = [];
 
   for (const room of featuredRooms) {
     const parts = room.name.split(" | ");
@@ -21,26 +23,89 @@ function groupFeaturedRooms(featuredRooms) {
       let group = groups.find(g => g.name === groupName);
 
       if (group) {
-        group.rooms.push({ ...room, name: roomName, member_cap: room.member_cap || 25 });
+        group.rooms.push({ ...room, name: roomName });
       } else {
         groups.push({
           name: groupName,
-          description: room.description,
-          thumbnail: room.images && room.images.preview && room.images.preview.url,
-          rooms: [{ ...room, name: roomName, member_cap: room.member_cap || 25 }]
+          rooms: [{ ...room, name: roomName }],
+          user_data: room.user_data
         });
       }
     } else {
       groups.push({
         name: room.name,
-        description: room.description,
-        thumbnail: room.images && room.images.preview && room.images.preview.url,
-        rooms: [{...room, member_cap: room.member_cap || 25}]
+        rooms: [room],
+        user_data: room.user_data
       });
     }
   }
 
+  groups = groups.sort((a, b) => {
+    if (a.user_data && a.user_data.group_order !== undefined && b.user_data && b.user_data.group_order !== undefined) {
+      return a.user_data.group_order - b.user_data.group_order;
+    }
+
+    if (a.user_data && a.user_data.group_order !== undefined) {
+      return -1;
+    }
+
+    if (b.user_data && b.user_data.group_order !== undefined) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+  for (const group of groups) {
+    group.rooms = group.rooms.sort((a, b) => {
+      if (a.user_data && a.user_data.room_order !== undefined && b.user_data && b.user_data.room_order !== undefined ) {
+        return a.user_data.room_order - b.user_data.room_order;
+      }
+  
+      if (a.user_data && a.user_data.room_order !== undefined) {
+        return -1;
+      }
+  
+      if (b.user_data && b.user_data.room_order !== undefined) {
+        return 1;
+      }
+  
+      return 0;
+    });
+
+    const mainRoom = group.rooms[0];
+    group.description =  mainRoom.description;
+    group.thumbnail = mainRoom.images && mainRoom.images.preview && mainRoom.images.preview.url;
+  }
+
   return groups;
+}
+
+function RoomItem({ room }) {
+  let canSpectate = true;
+  let canJoin = true;
+
+  if (room.member_count + room.lobby_count >= maxRoomCap) {
+    canSpectate = false;
+  }
+  
+  if (room.member_count >= room.room_size) {
+    canJoin = false;
+  }
+
+  return (
+    <li key={room.id}>
+      <p className={styles.roomTitle}>{room.name}</p>
+      <span>
+        <FontAwesomeIcon icon={faUsers} />
+        <b>{`${room.member_count} / ${room.room_size}`}</b>
+        {canSpectate ? 
+          <a className={classNames(styles.joinButton)} href={room.url} >{canJoin ? "Join" : "Spectate"}</a> :
+          <p className={classNames(styles.joinButton, styles.joinButtonDisabled)}>Full</p>
+        }
+      </span>
+    </li>
+  );
 }
 
 function ConferenceRoomGroup({ group }) {
@@ -48,20 +113,9 @@ function ConferenceRoomGroup({ group }) {
     <div className={classNames(styles.card, styles.conferenceRoomGroup)}>
       <div className={styles.groupLeft}>
         <h2>{group.name}</h2>
-        <p>{group.description}</p>
+        {group.description && <p>{group.description}</p>}
         <ul className={styles.roomList}>
-          {group.rooms.map((room => (
-            <li key={room.id}>
-              {(room.member_count >= room.member_cap) ?
-                <p className={styles.disabledRoomLink}>{room.name} (Full)</p> :
-                <a href={room.url}>{room.name}</a>
-              }
-              <span>
-                <FontAwesomeIcon icon={faUsers} />
-                <b>{`${room.member_count} / ${room.member_cap}`}</b>
-              </span>
-            </li>
-          )))}
+          {group.rooms.map(room => <RoomItem key={room.id} room={room} />)}
         </ul>
       </div>
       <div className={styles.groupRight}>
@@ -91,6 +145,9 @@ export default function ConferenceContent({ featuredRooms }) {
       </section>
       <section>
         <div className={styles.contentContainer}>
+          <div className={styles.centered}>
+            <h1>Virtual Rooms</h1>
+          </div>
           {groupFeaturedRooms(featuredRooms).map((group) => <ConferenceRoomGroup key={group.name} group={group} />)}
         </div>
       </section>
