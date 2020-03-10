@@ -1,40 +1,26 @@
 import * as moment from "moment"
-import * as data from "/dest/atlas.js"
+// import * as data from "/dest/atlas.js"
 
 AFRAME.registerSystem('clock', {
 	init: function () {
-		const clockGeo = new THREE.CircleGeometry(3, 12);
-		const clockMat = new THREE.MeshBasicMaterial( { color: 'skyblue' } );
+    this.clockR = 2
+    var textures = this.textures = []
+    const loader = new THREE.TextureLoader();
+    for (var i = 0; i < 10; i++) {
+    }
+		const clockGeo = new THREE.CircleGeometry(this.clockR, 36);
+		const clockMat = new THREE.MeshBasicMaterial( {
+      map: loader.load('src/clockface.png'),
+    } );
 		const clock = new THREE.Mesh( clockGeo, clockMat );
-		clock.position.set(0,5,0)
+		clock.position.set(0,5,-10)
 		this.el.object3D.add( clock );
 
-		this.secHandLen= 2.5
-		this.minHandLen = 2
-		this.hourHandLen= 1.2
-
-		const markmat = new THREE.LineBasicMaterial( { color: 'black' } );
-		const points1 = [new THREE.Vector3(0,2.5,0), new THREE.Vector3(0,3,0)]
-		const mark1geo = new THREE.BufferGeometry().setFromPoints( points1 );
-		const line1 = new THREE.Line(mark1geo, markmat);
-		clock.add(line1);
-
-		const points2 = [new THREE.Vector3(2.5,0,0), new THREE.Vector3(3,0,0)]
-		const mark2geo = new THREE.BufferGeometry().setFromPoints( points2 );
-		const line2 = new THREE.Line(mark2geo, markmat);
-		clock.add(line2);
-
-		const points3 = [new THREE.Vector3(0,-2.5,0), new THREE.Vector3(0,-3,0)]
-		const mark3geo = new THREE.BufferGeometry().setFromPoints( points3 );
-		const line3 = new THREE.Line(mark3geo, markmat);
-		clock.add(line3);
-
-		const points4 = [new THREE.Vector3(-2.5,0,0), new THREE.Vector3(-3,0,0)]
-		const mark4geo = new THREE.BufferGeometry().setFromPoints( points4 );
-		const line4 = new THREE.Line(mark4geo, markmat);
-		clock.add(line4);
-
-		const secMat = new THREE.LineBasicMaterial( { color: 'white' } );
+		this.secHandLen= 1.7
+		this.minHandLen = 1.5
+    this.hourHandLen= 1
+    
+		const secMat = new THREE.LineBasicMaterial( { color: 'red' } );
 		const secPs = new Float32Array( 2 * 3 );
 		for (let i = 0; i < 6; i++) {
 			secPs[i] = 0;
@@ -57,7 +43,7 @@ AFRAME.registerSystem('clock', {
 		const hour = this.hour = new THREE.Line( hourGeo, hourMat );
 		clock.add(hour);
 
-		const minMat = new THREE.LineBasicMaterial( { color: 'gray' } );
+		const minMat = new THREE.LineBasicMaterial( { color: 'black' } );
 		const minPs = new Float32Array( 2 * 3 );
 		for (let i = 0; i < 6; i++) {
 			minPs[i] = 0;
@@ -67,7 +53,49 @@ AFRAME.registerSystem('clock', {
 		const minGeo = new THREE.BufferGeometry().setFromPoints( minPs );
 		minGeo.addAttribute( 'position', new THREE.BufferAttribute( minPs, 3 ) );
 		const minute = this.minute = new THREE.Line( minGeo, minMat );
-		clock.add(minute);
+    clock.add(minute);
+    
+    const numGeo = new THREE.PlaneGeometry( 1, 1.5, 1 );
+    var dig1Mat = new THREE.MeshBasicMaterial( { 
+      map: this.textures[0],
+      side: THREE.DoubleSide,
+      transparent: true, opacity: 0.99, } );
+    var dig1 = this.dig1 = new THREE.Mesh( numGeo, dig1Mat );
+    dig1.position.set(-2,-3,0)
+    clock.add( dig1 );
+
+    var dig2Mat = new THREE.MeshBasicMaterial( {
+      map: this.textures[0],
+      side: THREE.DoubleSide,
+      transparent: true, opacity: 0.99, } );
+    var dig2 = this.dig2 = new THREE.Mesh( numGeo, dig2Mat );
+    dig2.position.set(-1,-3,0)
+    clock.add( dig2 );
+
+    var dig3Mat = new THREE.MeshBasicMaterial( {
+      map: this.textures[0],
+      side: THREE.DoubleSide,
+      transparent: true, opacity: 0.99, } );
+    var dig3 = this.dig3 = new THREE.Mesh( numGeo, dig3Mat );
+    dig3.position.set(1,-3,0)
+    clock.add( dig3 );
+
+    var dig4Mat = new THREE.MeshBasicMaterial( {
+      map: this.textures[0],
+      side: THREE.DoubleSide,
+      transparent: true, opacity: 0.99, } );
+    var dig4 = this.dig4 = new THREE.Mesh( numGeo, dig4Mat );
+    dig4.position.set(2,-3,0)
+    clock.add( dig4 );
+
+    var digCMat = new THREE.MeshBasicMaterial( { 
+      map: loader.load('src/c.png'),
+      side: THREE.DoubleSide,
+      transparent: true, opacity: 0.99, } );
+    var digC = new THREE.Mesh( numGeo, digCMat );
+    digC.position.set(0,-3,0)
+    clock.add( digC );
+
 	},
 	tick() {
 		const s = moment().zone("America/New_York").second();
@@ -77,33 +105,42 @@ AFRAME.registerSystem('clock', {
 		this.updateSec(s);
 		this.second.geometry.attributes.position.needsUpdate = true; 
 		this.updateMin(m);
-		this.minute.geometry.attributes.position.needsUpdate = true; 
+    this.minute.geometry.attributes.position.needsUpdate = true; 
+    this.dig3.material.needsUpdate = true;
+    this.dig4.material.needsUpdate = true;
 		this.updateHour(h,m);
-		this.hour.geometry.attributes.position.needsUpdate = true; 
+    this.hour.geometry.attributes.position.needsUpdate = true; 
+    this.dig1.material.needsUpdate = true;
+    this.dig2.material.needsUpdate = true;
 	},
 
 	updateSec(s) {
 		const pos = this.second.geometry.attributes.position.array;
 		const x = s/30*Math.PI;
 		pos[3] = this.secHandLen*Math.sin(x);
-		pos[4] = this.secHandLen*Math.cos(x);
+    pos[4] = this.secHandLen*Math.cos(x);
 	},
 
 	updateHour(h, m) {
 		const pos = this.hour.geometry.attributes.position.array;
 		const x = (h*60 + m)/360*Math.PI;
 		pos[3] = this.hourHandLen*Math.sin(x);
-		pos[4] = this.hourHandLen*Math.cos(x);
+    pos[4] = this.hourHandLen*Math.cos(x);
+    this.dig1.material.map = this.textures[Math.floor(h/10)];
+    this.dig2.material.map = this.textures[h%10];
 	},
 
 	updateMin(m) {
 		const pos = this.minute.geometry.attributes.position.array;
 		const x = m/30*Math.PI;
 		pos[3] = this.minHandLen*Math.sin(x);
-		pos[4] = this.minHandLen*Math.cos(x);
+    pos[4] = this.minHandLen*Math.cos(x);
+    this.dig3.material.map = this.textures[Math.floor(m/10)];
+    this.dig4.material.map = this.textures[m%10];
 	}
 });
 
+/*
 AFRAME.registerSystem('posters', {
     init: function() {
       var inbloc = this.inbloc = [-1,-1];
@@ -249,3 +286,4 @@ AFRAME.registerSystem('posters', {
       return Math.pow(i.x - j.x, 2) + Math.pow(i.y - j.y, 2) + Math.pow(i.z - j.z, 2);
     }
 });
+*/
