@@ -1,0 +1,23 @@
+diff --git a/src/gltf-component-mappings.js b/src/gltf-component-mappings.js
+index b9d88b5e..18583006 100644
+--- a/src/gltf-component-mappings.js
++++ b/src/gltf-component-mappings.js
+@@ -2,6 +2,7 @@ import "./components/gltf-model-plus";
+ import { getSanitizedComponentMapping } from "./utils/component-mappings";
+ import { TYPE, SHAPE, FIT } from "three-ammo/constants";
+ const COLLISION_LAYERS = require("./constants").COLLISION_LAYERS;
++import {GLTFComponentMappingDelegate as delegate} from '../../hub.inject';
+ 
+ function registerRootSceneComponent(componentName) {
+   AFRAME.GLTFModelPlus.registerComponent(componentName, componentName, (el, componentName, componentData) => {
+@@ -190,7 +191,8 @@ async function mediaInflator(el, componentName, componentData, components) {
+     isControlled = componentData.controls || componentName === "link";
+ 
+     const hasVolume = componentName === "video" || componentName === "audio";
+-    const templateName = isControlled || hasVolume ? "#static-controlled-media" : "#static-media";
++    const templateName = isControlled || hasVolume || (delegate && delegate.shouldMediaBeInspectable && delegate.shouldMediaBeInspectable(el)) ? 
++      "#static-controlled-media" : "#static-media";
+ 
+     el.setAttribute("networked", {
+       template: templateName,
+

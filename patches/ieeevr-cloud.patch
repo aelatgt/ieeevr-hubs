@@ -31,7 +31,7 @@ index 3f30b1b3..0e8e0a98 100644
 -# A comma-separated list of environment URLs to make available in the picker, besides the defaults.
 -# These URLs are expected to be relative to ASSET_BUNDLE_SERVER.
 -EXTRA_ENVIRONMENTS=
-+NON_CORS_PROXY_DOMAINS=",hubs.ieeevr.online"
++NON_CORS_PROXY_DOMAINS="hubs.local,hubs.ieeevr.online,hubs-ieeevr-hubs-internal-net-proxy.ieeevr2020.workers.dev,hubs-ieeevr-hubs-internal-net-cors-proxy.ieeevr2020.workers.dev"
  
  # The root URL under which Hubs expects static assets to be served.
  BASE_ASSETS_PATH=/

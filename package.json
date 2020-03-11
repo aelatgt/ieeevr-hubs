@@ -11,7 +11,7 @@
         "makepatch": "cd hubs && git diff > ../patches/RENAME_ME.patch",
         "postmakepatch": "npm run hubs:patch",
         "start": "cd hubs && npm run start",
-        "build-gh": "cd hubs && cross-env BASE_ASSETS_PATH=/custom-hubs-template/ npm run build",
+        "build-gh": "cd hubs && cross-env BASE_ASSETS_PATH=/ieeevr-hubs/ npm run build",
         "deploy-gh": "gh-pages -d hubs/dist"
     },
     "devDependencies": {
