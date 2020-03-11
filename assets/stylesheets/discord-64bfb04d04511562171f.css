@@ -1,0 +1,618 @@
+:root {
+  --spoke-action-color: #2F80ED;
+  --spoke-action-text-color: white;
+  --twitter-action-color: #1da1f2;
+  --twitter-link-color: #5e93c5;
+  --twitter-panel-background-color: #e6ecf0;
+  --twitter-editor-border-color: #a4d9f9;
+  --discord-text-color: white;
+  --discord-background-color: #2A2D32;
+  --discord-subtitle-color: #A3A3A3;
+  --discord-action-color: #7289DA;
+  --discord-secondary-text-color: #7f7f7f;
+  --discord-secondary-action-color: #404040;
+  --hud-panel-background: rgba(79, 79, 79, 0.45);
+  --hud-dropdown-background-color: rgba(72, 72, 72, 0.2);
+  --hud-dropdown-border-color: rgba(72, 72, 72, 0.3);
+  --hud-panel-text-color: #f0f0f0;
+  --hud-panel-link-color: white;
+  --overlay-text-field-text-color: white;
+  --overlay-text-field-widget-color: gray;
+  --overlay-text-field-background-color: rgba(64, 64, 64, 0.55);
+  --overlay-text-field-focused-background-color: #404040;
+  --overlay-text-field-placeholder-color: gray;
+  --overlay-text-field-disabled-color: gray;
+  --lightbox-text-color: white;
+  --lightbox-icon-color: black;
+  --lightbox-text-field-color: white;
+  --lightbox-text-field-border-color: #e2e2e2;
+  --lightbox-text-field-text-color: black;
+  --lightbox-background-color: rgba(0, 0, 0, 0.9);
+  --lightbox-icon-background-color: white;
+  --lightbox-widget-color: #404040;
+  --post-session-splash-text-color: white;
+  --post-session-splash-background-color: black;
+  --post-session-splash-secondary-action-color: #f0f0f0;
+  --vr-interstitial-background-color: rgba(0, 0, 0, 0.9);
+  --vr-interstitial-text-color: #f0f0f0; }
+
+.light-theme {
+  --action-button-secondary-background: white;
+  --text-field-text-color: black;
+  --text-field-widget-color: #202020;
+  --text-field-background-color: white;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: gray;
+  --text-field-border-color: #e2e2e2;
+  --panel-action-button-secondary-background: #f4f4f4;
+  --panel-background-color: rgba(255, 255, 255, 0.9);
+  --panel-text-color: black;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: white;
+  --overlay-button-icon-color: #202020;
+  --action-button-secondary-icon: gray;
+  --full-panel-background-color: rgba(255, 255, 255, 0.98);
+  --menu-background-color: white;
+  --menu-link-color: black;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: gray;
+  --menu-text-color: black;
+  --menu-icon-color: #202020;
+  --menu-attach-point-color: rgba(255, 255, 255, 0.9);
+  --panel-rule-color: lightgrey;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --unfavorited-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: gray;
+  --panel-subtext-color: #7f7f7f;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: lightgrey;
+  --panel-icon-color: #404040;
+  --overlay-text-color: black;
+  --loading-background-color: #d7e5ec;
+  --loading-spinner-color: #555;
+  --loading-text-color: #404040;
+  --lobby-overlay-widget-background-color: rgba(255, 255, 255, 0.9);
+  --lobby-overlay-widget-text-color: black;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(255, 255, 255, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: white;
+  --home-header-background-color: white;
+  --home-footer-background-color: white;
+  --home-header-link-color: black;
+  --home-footer-text-color: black;
+  --home-footer-link-color: gray;
+  --home-text-color: black;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.6);
+  --link-background-color: white;
+  --link-text-color: black;
+  --link-button-highlight-color: rgba(255, 255, 255, 0);
+  --link-keypad-background-color: #f7f7f7;
+  --link-button-background-color: white;
+  --link-entry-color: black;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #eaeaea;
+  --tile-title-color: black;
+  --tile-subtitle-color: #404040;
+  --tile-subtitle-link-color: gray;
+  --tile-subtext-color: #7f7f7f;
+  --tile-background-color: lightgrey;
+  --tile-alt-background-color: #f0f0f0;
+  --tile-empty-text-color: grey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: white; }
+
+.dark-theme {
+  --action-button-secondary-background: #404040;
+  --text-field-text-color: lightgrey;
+  --text-field-widget-color: #f0f0f0;
+  --text-field-background-color: #404040;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: #202020;
+  --text-field-border-color: #404040;
+  --panel-action-button-secondary-background: #404040;
+  --panel-background-color: rgba(32, 32, 32, 0.9);
+  --panel-text-color: #fafafa;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: rgba(50, 50, 50, 0.95);
+  --overlay-button-icon-color: lightgrey;
+  --unfavorited-color: gray;
+  --action-button-secondary-icon: #fafafa;
+  --full-panel-background-color: rgba(32, 32, 32, 0.98);
+  --menu-background-color: rgba(32, 32, 32, 0.9);
+  --menu-link-color: #fafafa;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: lightgrey;
+  --menu-text-color: #fafafa;
+  --menu-icon-color: lightgrey;
+  --menu-attach-point-color: rgba(32, 32, 32, 0.9);
+  --panel-rule-color: gray;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: lightgrey;
+  --panel-subtext-color: #fafafa;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: #404040;
+  --panel-icon-color: gray;
+  --overlay-text-color: black;
+  --loading-background-color: #202020;
+  --loading-spinner-color: gray;
+  --loading-text-color: lightgrey;
+  --lobby-overlay-widget-background-color: rgba(32, 32, 32, 0.9);
+  --lobby-overlay-widget-text-color: #fafafa;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(64, 64, 64, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: #202020;
+  --home-header-background-color: #202020;
+  --home-footer-background-color: black;
+  --home-header-link-color: #fafafa;
+  --home-footer-text-color: white;
+  --home-footer-link-color: white;
+  --home-text-color: #fafafa;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.1);
+  --link-background-color: #202020;
+  --link-text-color: #fafafa;
+  --link-button-highlight-color: lightgrey;
+  --link-keypad-background-color: #202020;
+  --link-button-background-color: rgba(16, 16, 16, 1);
+  --link-entry-color: #fafafa;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #404040;
+  --tile-title-color: #fafafa;
+  --tile-subtitle-color: #f0f0f0;
+  --tile-subtitle-link-color: lightgrey;
+  --tile-subtext-color: gray;
+  --tile-background-color: gray;
+  --tile-alt-background-color: #404040;
+  --tile-empty-text-color: lightgrey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: gray; }
+
+.discord__download-button__2D29f, .discord__play-button__3KFrs, .discord__close-video__mo0qN, .loading-panel, body {
+  font-family: 'Open Sans', sans-serif; }
+
+.discord__download-button__2D29f {
+  width: 350px; }
+  @media (max-width: 768px) {
+    .discord__download-button__2D29f {
+      width: 327px; } }
+  @media (max-width: 375px) {
+    .discord__download-button__2D29f {
+      width: 300px; } }
+
+.discord__download-button__2D29f, .discord__play-button__3KFrs, .discord__close-video__mo0qN {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.discord__download-button__2D29f, .discord__play-button__3KFrs, .discord__close-video__mo0qN, .loading-panel, body {
+  font-family: 'Open Sans', sans-serif; }
+
+.discord__download-button__2D29f {
+  width: 350px; }
+  @media (max-width: 768px) {
+    .discord__download-button__2D29f {
+      width: 327px; } }
+  @media (max-width: 375px) {
+    .discord__download-button__2D29f {
+      width: 300px; } }
+
+.discord__download-button__2D29f, .discord__play-button__3KFrs, .discord__close-video__mo0qN {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.loader-wrap {
+  pointer-events: none;
+  position: relative;
+  width: 100px;
+  height: 90px; }
+
+.loader-bottom {
+  position: fixed;
+  bottom: 8px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%; }
+
+.loader-mid {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%; }
+
+.loading-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--loading-background-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.loading-panel__logo {
+  width: 247px;
+  margin: 20px 0 10px 0;
+  filter: drop-shadow(0 0 4px #888); }
+
+.loading-panel__powered-by {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: var(--loading-text-color); }
+  @media (max-width: 768px), (max-height: 480px) {
+    .loading-panel__powered-by {
+      display: none; } }
+  .loading-panel__powered-by a {
+    color: var(--loading-text-color); }
+
+.loading-panel__powered-by__prefix {
+  margin-right: 4px; }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  background: var(--loading-spinner-color);
+  -webkit-animation: loader-animation 1s infinite ease-in-out;
+  animation: loader-animation 1s infinite ease-in-out;
+  width: 0.6em;
+  height: 1em;
+  border-radius: 5px; }
+
+.loader {
+  color: var(--loading-spinner-color);
+  text-indent: -9999em;
+  margin-left: 4em;
+  margin-top: 4em;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: ''; }
+
+.loader-center {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+.loader:before {
+  left: -1.2em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.loader:after {
+  left: 1.2em; }
+
+@-webkit-keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+@keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+.discord__loading-text__1rNzQ {
+  font-weight: normal;
+  font-size: 0.8em;
+  color: var(--loading-text-color);
+  margin-top: 0; }
+
+body {
+  background: var(--discord-background-color);
+  color: var(--discord-text-color);
+  margin: 0; }
+
+.discord__bg__1Eppr {
+  background: var(--discord-background-color);
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2; }
+
+.discord__ui__3A-5o {
+  display: flex;
+  position: relative;
+  flex-direction: column; }
+
+.discord__content__1Zv_7 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  align-items: center;
+  justify-content: center; }
+
+.discord__header__2A9LE {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--discord-text-color); }
+
+.discord__header-links__3ZNRt {
+  display: flex;
+  margin: 24px 12px 0px 12px; }
+  @media (max-width: 450px) {
+    .discord__header-links__3ZNRt {
+      justify-content: space-between; } }
+  .discord__header-links__3ZNRt a {
+    color: var(--discord-text-color);
+    text-decoration: none;
+    margin: 0px 18px; }
+
+.discord__hero-pane__2L8gu {
+  display: flex;
+  height: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center; }
+  @media (max-width: 1260px) {
+    .discord__hero-pane__2L8gu {
+      flex-direction: column; } }
+  @media (max-width: 700px) {
+    .discord__hero-pane__2L8gu {
+      width: 100%; } }
+
+.discord__discord-logo__3rbJA {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw; }
+  @media (max-width: 700px) {
+    .discord__discord-logo__3rbJA {
+      width: 320px; }
+      .discord__discord-logo__3rbJA img {
+        width: 100%; } }
+
+.discord__primary-tagline__2TWHV {
+  width: 90%;
+  text-align: left;
+  font-weight: lighter;
+  font-size: 1.5em;
+  white-space: pre;
+  margin-top: 32px;
+  margin-left: 12px;
+  margin-right: 12px; }
+  @media (max-width: 450px) {
+    .discord__primary-tagline__2TWHV {
+      font-size: 1.3em; } }
+  @media (max-width: 700px) {
+    .discord__primary-tagline__2TWHV {
+      text-align: center;
+      white-space: normal; } }
+
+.discord__secondary-tagline__3d0UA {
+  width: 90%;
+  text-align: left;
+  font-weight: lighter;
+  font-size: 1.5em;
+  margin-top: 48px;
+  margin-left: 12px;
+  margin-right: 12px; }
+  @media (max-width: 450px) {
+    .discord__secondary-tagline__3d0UA {
+      font-size: 1.3em; } }
+  @media (max-width: 700px) {
+    .discord__secondary-tagline__3d0UA {
+      text-align: center; } }
+
+.discord__hero-message__3VOU2 {
+  width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 36px; }
+  @media (max-width: 1260px) {
+    .discord__hero-message__3VOU2 {
+      text-shadow: 0px 0px 4px black;
+      order: 2;
+      width: 100%;
+      margin: 32px 0;
+      height: auto; } }
+
+.discord__hero-splash__1MVRz {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin: 0 32px;
+  flex: 1;
+  z-index: -1;
+  border-radius: 8px; }
+  .discord__hero-splash__1MVRz video {
+    width: 90%;
+    border-style: solid;
+    border-width: thick;
+    border-radius: 5px; }
+  @media (max-width: 1260px) {
+    .discord__hero-splash__1MVRz {
+      display: none; } }
+  .discord__hero-splash__1MVRz .discord__splash-tagline__3xv4M {
+    position: absolute;
+    bottom: -40px;
+    right: 15%;
+    width: 75%;
+    text-align: center;
+    color: var(--discord-subtitle-color); }
+
+.discord__preview-video__1QQXY {
+  width: 90%;
+  border-radius: 12px 0 0 12px;
+  z-index: -1; }
+
+.discord__download-button__2D29f {
+  height: 64px;
+  border-radius: 4px;
+  background-color: var(--discord-action-color);
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em; }
+
+.discord__play-button__3KFrs, .discord__close-video__mo0qN {
+  background-color: var(--discord-secondary-action-color);
+  margin: auto;
+  padding: 0px 82px; }
+
+.discord__tutorial-buttons__3Ycm7 {
+  margin-top: 64px; }
+  .discord__tutorial-buttons__3Ycm7 button {
+    margin: 32px auto; }
+
+.discord__close-video__mo0qN {
+  margin-top: 12px; }
+
+.discord__browse-versions__Csh-_ {
+  color: var(--discord-secondary-text-color);
+  margin-top: 12px;
+  display: block;
+  text-align: center;
+  width: 100%; }
+
+.discord__thank-you__2Nec7 {
+  text-align: center; }
+  .discord__thank-you__2Nec7 a {
+    color: var(--discord-secondary-text-color); }
+
+.discord__player-overlay__1D0s7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--lightbox-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.discord__player-content__2QrNV {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+.discord__player-video__2JiDD {
+  width: 960px;
+  height: 540px; }
+  @media (max-width: 980px), (max-height: 760px) {
+    .discord__player-video__2JiDD {
+      width: 640px;
+      height: 360px; } }
+  @media (max-width: 650px), (max-height: 580px) {
+    .discord__player-video__2JiDD {
+      width: 480px;
+      height: 270px; } }
+  @media (max-width: 490px), (max-height: 480px) {
+    .discord__player-video__2JiDD {
+      width: 320px;
+      height: 180px; } }
+
+.discord__attribution__1AS4E {
+  position: absolute;
+  bottom: -40px;
+  right: 84px;
+  color: var(--discord-secondary-action-color); }
+
+
+/*# sourceMappingURL=discord-64bfb04d04511562171f.css.map*/

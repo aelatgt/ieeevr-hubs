@@ -1,0 +1,373 @@
+.avatar-preview__preview__2I8qx {
+  position: relative;
+  overflow: hidden;
+  background: var(--tile-selected-color);
+  border-radius: 20px; }
+  .avatar-preview__preview__2I8qx .loader {
+    position: absolute;
+    left: calc(50% - 4.3em);
+    top: calc(50% - 4.5em); }
+  .avatar-preview__preview__2I8qx .error {
+    color: var(--panel-subtext-color);
+    text-align: center;
+    padding: 1.5em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    width: 100%; }
+  .avatar-preview__preview__2I8qx .error-icon {
+    width: 16px;
+    height: 16px;
+    transform: translateY(2px);
+    margin: 0 0.3em; }
+
+:root {
+  --spoke-action-color: #2F80ED;
+  --spoke-action-text-color: white;
+  --twitter-action-color: #1da1f2;
+  --twitter-link-color: #5e93c5;
+  --twitter-panel-background-color: #e6ecf0;
+  --twitter-editor-border-color: #a4d9f9;
+  --discord-text-color: white;
+  --discord-background-color: #2A2D32;
+  --discord-subtitle-color: #A3A3A3;
+  --discord-action-color: #7289DA;
+  --discord-secondary-text-color: #7f7f7f;
+  --discord-secondary-action-color: #404040;
+  --hud-panel-background: rgba(79, 79, 79, 0.45);
+  --hud-dropdown-background-color: rgba(72, 72, 72, 0.2);
+  --hud-dropdown-border-color: rgba(72, 72, 72, 0.3);
+  --hud-panel-text-color: #f0f0f0;
+  --hud-panel-link-color: white;
+  --overlay-text-field-text-color: white;
+  --overlay-text-field-widget-color: gray;
+  --overlay-text-field-background-color: rgba(64, 64, 64, 0.55);
+  --overlay-text-field-focused-background-color: #404040;
+  --overlay-text-field-placeholder-color: gray;
+  --overlay-text-field-disabled-color: gray;
+  --lightbox-text-color: white;
+  --lightbox-icon-color: black;
+  --lightbox-text-field-color: white;
+  --lightbox-text-field-border-color: #e2e2e2;
+  --lightbox-text-field-text-color: black;
+  --lightbox-background-color: rgba(0, 0, 0, 0.9);
+  --lightbox-icon-background-color: white;
+  --lightbox-widget-color: #404040;
+  --post-session-splash-text-color: white;
+  --post-session-splash-background-color: black;
+  --post-session-splash-secondary-action-color: #f0f0f0;
+  --vr-interstitial-background-color: rgba(0, 0, 0, 0.9);
+  --vr-interstitial-text-color: #f0f0f0; }
+
+.light-theme {
+  --action-button-secondary-background: white;
+  --text-field-text-color: black;
+  --text-field-widget-color: #202020;
+  --text-field-background-color: white;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: gray;
+  --text-field-border-color: #e2e2e2;
+  --panel-action-button-secondary-background: #f4f4f4;
+  --panel-background-color: rgba(255, 255, 255, 0.9);
+  --panel-text-color: black;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: white;
+  --overlay-button-icon-color: #202020;
+  --action-button-secondary-icon: gray;
+  --full-panel-background-color: rgba(255, 255, 255, 0.98);
+  --menu-background-color: white;
+  --menu-link-color: black;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: gray;
+  --menu-text-color: black;
+  --menu-icon-color: #202020;
+  --menu-attach-point-color: rgba(255, 255, 255, 0.9);
+  --panel-rule-color: lightgrey;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --unfavorited-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: gray;
+  --panel-subtext-color: #7f7f7f;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: lightgrey;
+  --panel-icon-color: #404040;
+  --overlay-text-color: black;
+  --loading-background-color: #d7e5ec;
+  --loading-spinner-color: #555;
+  --loading-text-color: #404040;
+  --lobby-overlay-widget-background-color: rgba(255, 255, 255, 0.9);
+  --lobby-overlay-widget-text-color: black;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(255, 255, 255, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: white;
+  --home-header-background-color: white;
+  --home-footer-background-color: white;
+  --home-header-link-color: black;
+  --home-footer-text-color: black;
+  --home-footer-link-color: gray;
+  --home-text-color: black;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.6);
+  --link-background-color: white;
+  --link-text-color: black;
+  --link-button-highlight-color: rgba(255, 255, 255, 0);
+  --link-keypad-background-color: #f7f7f7;
+  --link-button-background-color: white;
+  --link-entry-color: black;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #eaeaea;
+  --tile-title-color: black;
+  --tile-subtitle-color: #404040;
+  --tile-subtitle-link-color: gray;
+  --tile-subtext-color: #7f7f7f;
+  --tile-background-color: lightgrey;
+  --tile-alt-background-color: #f0f0f0;
+  --tile-empty-text-color: grey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: white; }
+
+.dark-theme {
+  --action-button-secondary-background: #404040;
+  --text-field-text-color: lightgrey;
+  --text-field-widget-color: #f0f0f0;
+  --text-field-background-color: #404040;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: #202020;
+  --text-field-border-color: #404040;
+  --panel-action-button-secondary-background: #404040;
+  --panel-background-color: rgba(32, 32, 32, 0.9);
+  --panel-text-color: #fafafa;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: rgba(50, 50, 50, 0.95);
+  --overlay-button-icon-color: lightgrey;
+  --unfavorited-color: gray;
+  --action-button-secondary-icon: #fafafa;
+  --full-panel-background-color: rgba(32, 32, 32, 0.98);
+  --menu-background-color: rgba(32, 32, 32, 0.9);
+  --menu-link-color: #fafafa;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: lightgrey;
+  --menu-text-color: #fafafa;
+  --menu-icon-color: lightgrey;
+  --menu-attach-point-color: rgba(32, 32, 32, 0.9);
+  --panel-rule-color: gray;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: lightgrey;
+  --panel-subtext-color: #fafafa;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: #404040;
+  --panel-icon-color: gray;
+  --overlay-text-color: black;
+  --loading-background-color: #202020;
+  --loading-spinner-color: gray;
+  --loading-text-color: lightgrey;
+  --lobby-overlay-widget-background-color: rgba(32, 32, 32, 0.9);
+  --lobby-overlay-widget-text-color: #fafafa;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(64, 64, 64, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: #202020;
+  --home-header-background-color: #202020;
+  --home-footer-background-color: black;
+  --home-header-link-color: #fafafa;
+  --home-footer-text-color: white;
+  --home-footer-link-color: white;
+  --home-text-color: #fafafa;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.1);
+  --link-background-color: #202020;
+  --link-text-color: #fafafa;
+  --link-button-highlight-color: lightgrey;
+  --link-keypad-background-color: #202020;
+  --link-button-background-color: rgba(16, 16, 16, 1);
+  --link-entry-color: #fafafa;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #404040;
+  --tile-title-color: #fafafa;
+  --tile-subtitle-color: #f0f0f0;
+  --tile-subtitle-link-color: lightgrey;
+  --tile-subtext-color: gray;
+  --tile-background-color: gray;
+  --tile-alt-background-color: #404040;
+  --tile-empty-text-color: lightgrey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: gray; }
+
+.avatar__avatar-landing__3bdoO {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN, .avatar__avatar-landing__3bdoO {
+  font-family: 'Open Sans', sans-serif; }
+
+.avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN {
+  margin: 16px 0; }
+
+.avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN {
+  background: var(--action-color, #FF3464); }
+
+.avatar__avatar-landing__3bdoO .avatar__title__PP1dU {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--panel-text-color); }
+
+.avatar__avatar-landing__3bdoO .avatar__attributions__1Ej7c {
+  font-size: 1.0em;
+  padding-top: 4px; }
+
+body {
+  margin: 0;
+  background-color: var(--full-panel-background-color); }
+
+.avatar__avatar-landing__3bdoO {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  pointer-events: auto;
+  flex-direction: column; }
+  .avatar__avatar-landing__3bdoO .avatar__logo__35vmn {
+    width: 150px;
+    margin-bottom: 22px;
+    filter: drop-shadow(0 0 4px #888); }
+    @media (min-width: 500px) {
+      .avatar__avatar-landing__3bdoO .avatar__logo__35vmn {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        margin-bottom: 0; } }
+  .avatar__avatar-landing__3bdoO .avatar__box__vyKNY {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    min-width: 300px;
+    max-width: 700px;
+    min-height: 200px;
+    max-height: 1000px;
+    height: 100%;
+    padding: 40px; }
+  .avatar__avatar-landing__3bdoO .avatar__title__PP1dU {
+    width: 100%;
+    color: var(--panel-text-color);
+    text-align: center; }
+  .avatar__avatar-landing__3bdoO .avatar__selected-message__25S2j {
+    color: var(--panel-subtext-color);
+    margin-top: 16px;
+    height: 48px; }
+  .avatar__avatar-landing__3bdoO .avatar__attributions__1Ej7c {
+    margin-bottom: 1em; }
+  .avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN {
+    margin: 0;
+    min-height: max-content;
+    margin-top: 16px; }
+    .avatar__avatar-landing__3bdoO .avatar__form-submit__3OEBN:disabled {
+      background-color: var(--action-color-disabled, #FF74A4);
+      cursor: default; }
+  .avatar__avatar-landing__3bdoO .avatar__preview__3T2SV {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    max-width: 300px; }
+  .avatar__avatar-landing__3bdoO .avatar__copy-tip__1FaPe {
+    position: absolute;
+    padding: 5px 20px;
+    background: var(--tile-button-tip-background-color);
+    top: 5px;
+    right: 10px;
+    border-radius: 20px;
+    height: 20px;
+    line-height: 20px;
+    color: var(--tile-button-tip-text-color); }
+  .avatar__avatar-landing__3bdoO .avatar__edit-avatar__1pMAy {
+    position: absolute;
+    top: 6px;
+    right: 7px;
+    color: var(--tile-button-icon-color);
+    background: var(--tile-button-background-color);
+    border-radius: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px; }
+    .avatar__avatar-landing__3bdoO .avatar__edit-avatar__1pMAy:hover {
+      background: var(--action-color, #FF3464);
+      color: var(--tile-button-icon-hover-color); }
+
+
+/*# sourceMappingURL=avatar-e464b41e294820f46ddb.css.map*/

@@ -1,0 +1,869 @@
+:root {
+  --spoke-action-color: #2F80ED;
+  --spoke-action-text-color: white;
+  --twitter-action-color: #1da1f2;
+  --twitter-link-color: #5e93c5;
+  --twitter-panel-background-color: #e6ecf0;
+  --twitter-editor-border-color: #a4d9f9;
+  --discord-text-color: white;
+  --discord-background-color: #2A2D32;
+  --discord-subtitle-color: #A3A3A3;
+  --discord-action-color: #7289DA;
+  --discord-secondary-text-color: #7f7f7f;
+  --discord-secondary-action-color: #404040;
+  --hud-panel-background: rgba(79, 79, 79, 0.45);
+  --hud-dropdown-background-color: rgba(72, 72, 72, 0.2);
+  --hud-dropdown-border-color: rgba(72, 72, 72, 0.3);
+  --hud-panel-text-color: #f0f0f0;
+  --hud-panel-link-color: white;
+  --overlay-text-field-text-color: white;
+  --overlay-text-field-widget-color: gray;
+  --overlay-text-field-background-color: rgba(64, 64, 64, 0.55);
+  --overlay-text-field-focused-background-color: #404040;
+  --overlay-text-field-placeholder-color: gray;
+  --overlay-text-field-disabled-color: gray;
+  --lightbox-text-color: white;
+  --lightbox-icon-color: black;
+  --lightbox-text-field-color: white;
+  --lightbox-text-field-border-color: #e2e2e2;
+  --lightbox-text-field-text-color: black;
+  --lightbox-background-color: rgba(0, 0, 0, 0.9);
+  --lightbox-icon-background-color: white;
+  --lightbox-widget-color: #404040;
+  --post-session-splash-text-color: white;
+  --post-session-splash-background-color: black;
+  --post-session-splash-secondary-action-color: #f0f0f0;
+  --vr-interstitial-background-color: rgba(0, 0, 0, 0.9);
+  --vr-interstitial-text-color: #f0f0f0; }
+
+.light-theme {
+  --action-button-secondary-background: white;
+  --text-field-text-color: black;
+  --text-field-widget-color: #202020;
+  --text-field-background-color: white;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: gray;
+  --text-field-border-color: #e2e2e2;
+  --panel-action-button-secondary-background: #f4f4f4;
+  --panel-background-color: rgba(255, 255, 255, 0.9);
+  --panel-text-color: black;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: white;
+  --overlay-button-icon-color: #202020;
+  --action-button-secondary-icon: gray;
+  --full-panel-background-color: rgba(255, 255, 255, 0.98);
+  --menu-background-color: white;
+  --menu-link-color: black;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: gray;
+  --menu-text-color: black;
+  --menu-icon-color: #202020;
+  --menu-attach-point-color: rgba(255, 255, 255, 0.9);
+  --panel-rule-color: lightgrey;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --unfavorited-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: gray;
+  --panel-subtext-color: #7f7f7f;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: lightgrey;
+  --panel-icon-color: #404040;
+  --overlay-text-color: black;
+  --loading-background-color: #d7e5ec;
+  --loading-spinner-color: #555;
+  --loading-text-color: #404040;
+  --lobby-overlay-widget-background-color: rgba(255, 255, 255, 0.9);
+  --lobby-overlay-widget-text-color: black;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(255, 255, 255, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: white;
+  --home-header-background-color: white;
+  --home-footer-background-color: white;
+  --home-header-link-color: black;
+  --home-footer-text-color: black;
+  --home-footer-link-color: gray;
+  --home-text-color: black;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.6);
+  --link-background-color: white;
+  --link-text-color: black;
+  --link-button-highlight-color: rgba(255, 255, 255, 0);
+  --link-keypad-background-color: #f7f7f7;
+  --link-button-background-color: white;
+  --link-entry-color: black;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #eaeaea;
+  --tile-title-color: black;
+  --tile-subtitle-color: #404040;
+  --tile-subtitle-link-color: gray;
+  --tile-subtext-color: #7f7f7f;
+  --tile-background-color: lightgrey;
+  --tile-alt-background-color: #f0f0f0;
+  --tile-empty-text-color: grey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: white; }
+
+.dark-theme {
+  --action-button-secondary-background: #404040;
+  --text-field-text-color: lightgrey;
+  --text-field-widget-color: #f0f0f0;
+  --text-field-background-color: #404040;
+  --text-field-placeholder-color: gray;
+  --text-field-disabled-color: #202020;
+  --text-field-border-color: #404040;
+  --panel-action-button-secondary-background: #404040;
+  --panel-background-color: rgba(32, 32, 32, 0.9);
+  --panel-text-color: #fafafa;
+  --panel-overlay-text-color: black;
+  --panel-overlay-background-color: rgba(0,0,0,0.85);
+  --overlay-button-background-color: rgba(50, 50, 50, 0.95);
+  --overlay-button-icon-color: lightgrey;
+  --unfavorited-color: gray;
+  --action-button-secondary-icon: #fafafa;
+  --full-panel-background-color: rgba(32, 32, 32, 0.98);
+  --menu-background-color: rgba(32, 32, 32, 0.9);
+  --menu-link-color: #fafafa;
+  --menu-link-underline-color: gray;
+  --menu-header-text-color: lightgrey;
+  --menu-text-color: #fafafa;
+  --menu-icon-color: lightgrey;
+  --menu-attach-point-color: rgba(32, 32, 32, 0.9);
+  --panel-rule-color: gray;
+  --panel-link-underline-color: gray;
+  --panel-widget-color: gray;
+  --panel-widget-disabled-color: gray;
+  --panel-title-underline-color: gray;
+  --panel-subtitle-color: lightgrey;
+  --panel-subtext-color: #fafafa;
+  --panel-subtext-link-color: gray;
+  --panel-subtext-disabled-color: #404040;
+  --panel-icon-color: gray;
+  --overlay-text-color: black;
+  --loading-background-color: #202020;
+  --loading-spinner-color: gray;
+  --loading-text-color: lightgrey;
+  --lobby-overlay-widget-background-color: rgba(32, 32, 32, 0.9);
+  --lobby-overlay-widget-text-color: #fafafa;
+  --lobby-overlay-widget-thumbnail-border-color: rgba(64, 64, 64, 0.15);
+  --spawned-overlay-widget-background-color: black;
+  --spawned-overlay-widget-source-text-color: #f0f0f0;
+  --spawned-overlay-widget-text-color: white;
+  --spawned-overlay-widget-link-color: white;
+  --chat-popup-background-color: #404040;
+  --chat-popup-text-color: #f0f0f0;
+  --home-background-color: #202020;
+  --home-header-background-color: #202020;
+  --home-footer-background-color: black;
+  --home-header-link-color: #fafafa;
+  --home-footer-text-color: white;
+  --home-footer-link-color: white;
+  --home-text-color: #fafafa;
+  --home-media-panel-background-color: rgba(255, 255, 255, 0.1);
+  --link-background-color: #202020;
+  --link-text-color: #fafafa;
+  --link-button-highlight-color: lightgrey;
+  --link-keypad-background-color: #202020;
+  --link-button-background-color: rgba(16, 16, 16, 1);
+  --link-entry-color: #fafafa;
+  --link-button-active-background-color: lightgrey;
+  --link-button-active-color: lightgrey;
+  --link-button-disabled-color: lightgrey;
+  --link-icon-color: #333;
+  --link-code-loading-background: rgba(0.4, 0.4, 0.4, 0.85);
+  --scene-text-color: white;
+  --scene-overlay-text-color: black;
+  --scene-loading-overlay-color: rgba(255, 255, 255, 0.2);
+  --tile-button-tip-background-color: #404040;
+  --tile-button-tip-text-color: #f0f0f0;
+  --tile-button-icon-color: black;
+  --tile-button-icon-hover-color: white;
+  --tile-button-background-color: #ffffffde;
+  --tile-inset-text: #404040;
+  --tile-selected-color: #404040;
+  --tile-title-color: #fafafa;
+  --tile-subtitle-color: #f0f0f0;
+  --tile-subtitle-link-color: lightgrey;
+  --tile-subtext-color: gray;
+  --tile-background-color: gray;
+  --tile-alt-background-color: #404040;
+  --tile-empty-text-color: lightgrey;
+  --overflow-tip-background-color: rgba(220, 220, 220, 0.5);
+  --overflow-tip-icon-color: black;
+  --icon-button-background-color: black;
+  --icon-button-border-color: gray; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field, .invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button, .loading-panel {
+  font-family: 'Open Sans', sans-serif; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field {
+  border: 1px solid var(--text-field-border-color);
+  box-sizing: border-box;
+  border-radius: 10px; }
+
+.invite-form, .invite-team-form, .add-media-form, .custom-scene-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field {
+  color: var(--text-field-text-color);
+  font-size: 1.2em;
+  background-color: transparent;
+  line-height: 2.0em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  margin: 0.5em 0;
+  width: 100%; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button {
+  margin: 16px 0; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button {
+  background: var(--action-color, #FF3464); }
+
+.dialog__box__contents__title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--panel-text-color); }
+
+.mailing-list-form__privacy_checkbox {
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  border: 1px solid var(--text-field-border-color);
+  background-color: var(--text-field-background-color);
+  border-radius: 6px;
+  vertical-align: sub;
+  margin: 0 0.7em; }
+
+.mailing-list-form__privacy_checkbox:checked {
+  position: relative; }
+  .mailing-list-form__privacy_checkbox:checked::after {
+    content: ' ';
+    position: absolute;
+    background: var(--action-color, #FF3464);
+    top: 0.3em;
+    left: 0.3em;
+    right: 0.3em;
+    bottom: 0.3em;
+    border-radius: 0.3em; }
+
+.dialog__box__contents__close {
+  cursor: pointer;
+  color: var(--panel-widget-color);
+  outline-style: none;
+  background: none;
+  border: none; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field, .invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button, .loading-panel {
+  font-family: 'Open Sans', sans-serif; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field {
+  border: 1px solid var(--text-field-border-color);
+  box-sizing: border-box;
+  border-radius: 10px; }
+
+.invite-form, .invite-team-form, .add-media-form, .custom-scene-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0; }
+
+.invite-form__link_field, .invite-team-form__link_field, .add-media-form__link_field, .custom-scene-form__link_field, .mailing-list-form__email_field {
+  color: var(--text-field-text-color);
+  font-size: 1.2em;
+  background-color: transparent;
+  line-height: 2.0em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  margin: 0.5em 0;
+  width: 100%; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button {
+  margin: 16px 0; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button, .mailing-list-form__submit, .info-dialog--action-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button {
+  background: var(--action-color, #FF3464); }
+
+.dialog__box__contents__title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--panel-text-color); }
+
+.mailing-list-form__privacy_checkbox {
+  cursor: pointer;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  border: 1px solid var(--text-field-border-color);
+  background-color: var(--text-field-background-color);
+  border-radius: 6px;
+  vertical-align: sub;
+  margin: 0 0.7em; }
+
+.mailing-list-form__privacy_checkbox:checked {
+  position: relative; }
+  .mailing-list-form__privacy_checkbox:checked::after {
+    content: ' ';
+    position: absolute;
+    background: var(--action-color, #FF3464);
+    top: 0.3em;
+    left: 0.3em;
+    right: 0.3em;
+    bottom: 0.3em;
+    border-radius: 0.3em; }
+
+.dialog__box__contents__close {
+  cursor: pointer;
+  color: var(--panel-widget-color);
+  outline-style: none;
+  background: none;
+  border: none; }
+
+.loader-wrap {
+  pointer-events: none;
+  position: relative;
+  width: 100px;
+  height: 90px; }
+
+.loader-bottom {
+  position: fixed;
+  bottom: 8px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%; }
+
+.loader-mid {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%; }
+
+.loading-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--loading-background-color);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.loading-panel__logo {
+  width: 247px;
+  margin: 20px 0 10px 0;
+  filter: drop-shadow(0 0 4px #888); }
+
+.loading-panel__powered-by {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: var(--loading-text-color); }
+  @media (max-width: 768px), (max-height: 480px) {
+    .loading-panel__powered-by {
+      display: none; } }
+  .loading-panel__powered-by a {
+    color: var(--loading-text-color); }
+
+.loading-panel__powered-by__prefix {
+  margin-right: 4px; }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  background: var(--loading-spinner-color);
+  -webkit-animation: loader-animation 1s infinite ease-in-out;
+  animation: loader-animation 1s infinite ease-in-out;
+  width: 0.6em;
+  height: 1em;
+  border-radius: 5px; }
+
+.loader {
+  color: var(--loading-spinner-color);
+  text-indent: -9999em;
+  margin-left: 4em;
+  margin-top: 4em;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.loader-center,
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: ''; }
+
+.loader-center {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+.loader:before {
+  left: -1.2em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.loader:after {
+  left: 1.2em; }
+
+@-webkit-keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+@keyframes loader-animation {
+  0%,
+  80%,
+  100% {
+    height: 2em;
+    top: 0; }
+  40% {
+    height: 3.5em;
+    top: -0.75em; } }
+
+.scene__loading-text__2zWvK {
+  font-weight: normal;
+  font-size: 0.8em;
+  color: var(--loading-text-color);
+  margin-top: 0; }
+
+.dialog-overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  pointer-events: auto;
+  color: var(--panel-overlay-text-color);
+  z-index: 20;
+  display: flex; }
+  .dialog-overlay__no-pointer-events {
+    pointer-events: none; }
+
+.dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+  .dialog__align-end {
+    align-items: end;
+    bottom: 0;
+    position: absolute; }
+  .dialog__dark-background {
+    background-color: var(--panel-overlay-background-color); }
+  .dialog__box {
+    max-width: 30em;
+    max-height: 100%;
+    display: flex;
+    position: relative;
+    pointer-events: auto;
+    width: 100%; }
+    .dialog__box__contents {
+      width: 100%;
+      overflow-y: auto;
+      padding: 30px;
+      box-shadow: 0px 0px 30px 1px #202020;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      background-color: var(--full-panel-background-color); }
+      @media (max-width: 801px) {
+        .dialog__box__contents {
+          padding: 5px; } }
+      .dialog__box__contents__title {
+        margin-bottom: 20px; }
+      .dialog__box__contents__body {
+        font-size: 0.9em;
+        font-weight: bold;
+        color: var(--panel-text-color);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 10px 0;
+        white-space: pre-wrap; }
+        @media (max-width: 801px) {
+          .dialog__box__contents__body {
+            margin: 0; } }
+        .dialog__box__contents__body a {
+          color: var(--panel-text-color); }
+        .dialog__box__contents__body a.info-dialog--action-button {
+          color: var(--action-text-color, white); }
+      .dialog__box__contents__links {
+        display: flex;
+        justify-content: center;
+        margin: 16px 0; }
+        .dialog__box__contents__links a {
+          margin: 0 12px;
+          color: var(--panel-text-color); }
+      .dialog__box__contents__close {
+        position: absolute;
+        left: 18px;
+        top: 18px;
+        font-size: 1.6em;
+        font-weight: bold; }
+    .dialog__box__contents-overflow {
+      overflow-y: visible; }
+  @media (min-width: 640px) {
+    .dialog__wide {
+      max-width: 640px; } }
+  @media (max-width: 639px) {
+    .dialog__wide {
+      max-width: 100%; } }
+
+.dialog__box__contents__body p:first-child {
+  margin-top: 0; }
+
+.invite-form__buttons, .invite-team-form__buttons, .add-media-form__buttons, .custom-scene-form__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.invite-form__link, .invite-team-form__link, .add-media-form__link, .custom-scene-form__link {
+  display: flex;
+  flex-direction: row; }
+
+.invite-form__action-button, .invite-team-form__action-button, .add-media-form__action-button, .custom-scene-form__action-button {
+  margin-left: 6px;
+  margin-right: 6px;
+  appearance: none;
+  width: 128px;
+  text-align: center;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+.invite-team-form__action-button {
+  width: 350px; }
+
+.mailing-list-form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0; }
+  .mailing-list-form__first {
+    width: 100%; }
+  .mailing-list-form__submit {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .mailing-list-form__privacy {
+    margin-top: 10px;
+    font-size: 0.7em; }
+  .mailing-list-form__privacy_checkbox {
+    vertical-align: middle;
+    margin-bottom: 18px; }
+  .mailing-list-form__privacy_checkbox:checked {
+    vertical-align: middle; }
+
+.info-dialog__help {
+  text-align: left; }
+  .info-dialog__help__hud {
+    width: 316px;
+    max-width: 100%;
+    margin: 12px 0; }
+
+.info-dialog--action-button {
+  margin-left: 6px;
+  margin-right: 6px;
+  appearance: none;
+  width: 168px;
+  text-align: center;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin: auto;
+  text-decoration: none; }
+
+.scene-ui__spokeButton__3S8NT, .scene-ui__tweetButton__NAR59, .scene-ui__createButton__1DQtQ, .scene-ui__optionsButton__lzUHO, .scene-ui__ui__3JHPz {
+  font-family: 'Open Sans', sans-serif; }
+
+.scene-ui__spokeButton__3S8NT, .scene-ui__tweetButton__NAR59, .scene-ui__createButton__1DQtQ {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  outline-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  border-radius: 28px;
+  padding: 0px 18px;
+  background: var(--action-color, #FF3464);
+  font-size: 1em;
+  color: var(--action-text-color, white);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  height: 48px; }
+
+.scene-ui__spokeButton__3S8NT {
+  background-color: var(--spoke-action-color); }
+
+.scene-ui__logoTagline___LR3I {
+  color: black;
+  text-shadow: 0px 0px 10px #888; }
+
+.scene-ui__optionsButton__lzUHO {
+  margin: 16px 0;
+  padding: 0;
+  display: block;
+  background: none;
+  border: none;
+  color: var(--panel-text-color);
+  cursor: pointer;
+  font-size: 0.8em;
+  outline-style: none; }
+
+.scene-ui__optionsButton__lzUHO {
+  width: 40px !important;
+  height: 40px;
+  display: inline-block;
+  font-size: 22px;
+  vertical-align: sub;
+  line-height: 42px; }
+  .scene-ui__optionsButton__lzUHO svg {
+    margin-left: 0px; }
+
+.scene-ui__ui__3JHPz {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  color: var(--scene-text-color); }
+
+.scene-ui__whiteOverlay__1Pz3I {
+  background-color: var(--scene-loading-overlay-color);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.scene-ui__grid__34j9h {
+  display: grid;
+  grid-template-columns: 1fr 20px minmax(200px, 400px) 20px 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  width: 100%;
+  height: 100%; }
+
+.scene-ui__mainPanel__IuYxi {
+  grid-column: 3;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: auto; }
+
+.scene-ui__logoTagline___LR3I {
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  margin-bottom: 32px; }
+
+.scene-ui__tweetButton__NAR59 {
+  background-color: var(--twitter-action-color);
+  align-self: center;
+  padding-right: 32px;
+  display: flex;
+  flex-direction: row; }
+  .scene-ui__tweetButton__NAR59 img {
+    width: 42px;
+    height: 42px;
+    margin-right: 6px; }
+
+.scene-ui__logo__26JnS {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 0 4px #888); }
+  .scene-ui__logo__26JnS img {
+    width: 100%; }
+
+.scene-ui__info__3Nznh {
+  position: absolute;
+  color: var(--scene-overlay-text-color);
+  text-shadow: 0px 0px 10px #888;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column; }
+
+.scene-ui__name__2-7V_ {
+  font-weight: bold;
+  font-size: 1.6em; }
+
+.scene-ui__attribution__3nlIi {
+  font-size: 1.0em;
+  white-space: wrap; }
+  .scene-ui__attribution__3nlIi .remix {
+    font-size: 0.8em; }
+  .scene-ui__attribution__3nlIi a {
+    font-size: 0.8em;
+    color: var(--scene-overlay-text-color);
+    pointer-events: auto; }
+
+.scene-ui__screenshot__279rF {
+  position: absolute;
+  width: 115%;
+  height: 115%;
+  top: -40px;
+  left: -40px;
+  background-color: black;
+  filter: blur(10px); }
+  .scene-ui__screenshot__279rF img {
+    width: 100%;
+    height: 100%; }
+
+.scene-ui__screenshotHidden__3nHWx {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear; }
+
+.scene-ui__spoke___KrWT {
+  pointer-events: auto;
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.8em;
+  font-weight: bold; }
+  @media (max-width: 768px) {
+    .scene-ui__spoke___KrWT {
+      display: none; } }
+  .scene-ui__spoke___KrWT .scene-ui__madeWith__A5stW {
+    color: var(--scene-overlay-text-color);
+    text-shadow: 0px 0px 4px #333;
+    margin-left: 4px;
+    position: absolute;
+    top: -1em;
+    left: 0; }
+  .scene-ui__spoke___KrWT img {
+    width: 200px; }
+
+.scene-ui__createButtons__1COLQ {
+  position: relative;
+  display: flex;
+  margin-bottom: 12px; }
+
+.scene-ui__createButton__1DQtQ {
+  width: 100%;
+  border: 0;
+  flex: 1; }
+
+.scene-ui__optionsButton__lzUHO {
+  position: absolute;
+  right: 10px;
+  top: -12px;
+  color: var(--action-text-color, white); }
+
+.scene-ui__unavailable__21hgO {
+  color: var(--post-session-splash-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+
+.scene-ui__spokeButton__3S8NT {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+  align-self: center;
+  padding-left: 30px;
+  padding-right: 30px; }
+  .scene-ui__spokeButton__3S8NT svg {
+    font-size: 24px;
+    margin-right: 15px; }
+
+
+/*# sourceMappingURL=scene-8a499bf30964a0f4fd70.css.map*/
