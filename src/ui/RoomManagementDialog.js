@@ -28,6 +28,7 @@ export default class RoomManagementDialog extends Component {
     for (const line of lines) {
       let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects] = line.split("\t");
       
+      scene_id = scene_id || undefined;
       group_order = parseInt(group_order);
       room_order = parseInt(room_order);
       spawn_and_move_media = spawn_and_move_media.toLowerCase() === "true";
