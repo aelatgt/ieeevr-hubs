@@ -138,8 +138,10 @@ export default function ConferenceContent({ featuredRooms }) {
       <section className={styles.descriptionContainer}>
         <div className={styles.contentContainer}>
           <div className={classNames(styles.card, styles.centered)}>
-            <h1>IEEE VR Online</h1>
-            Description of what the IEEE VR Online experience is.
+            <h1>Welcome to IEEEVR 2020</h1>
+            <h3>The Premier International Conference on Virtual Reality and 3D User Interfaces</h3>
+            <p>To join the online experience, you must be registered as a conference attendee, and logged in with the same email you used to register. Visit the <a href="http://ieeevr.org/2020" target="_blank" rel="noopener noreferrer">main IEEEVR 2020 Conference</a> to register. Visit the <a href="http://ieeevr.org/2020/online/" target="_blank" rel="noopener noreferrer">Online Information</a> page for more information about the online experience, links to join our conference Slack, and an FAQ for the conference and systems we are using. (Registration information is not immediately synchronized, so don't wait till the last minute to register.)</p>
+            <p>After signing in, please visit the Tutorial rooms if you are unfamiliar with the Hubs virtual world software. Documentation on the hubs controls for various platforms is available on the <a href="https://github.com/mozilla/hubs/wiki/Hubs-Controls" target="_blank" rel="noopener noreferrer">Hubs Wiki</a>, along with a wealth of other information that might make your IEEE VR experience using Hubs more enjoyable.</p>
           </div>
         </div>
       </section>

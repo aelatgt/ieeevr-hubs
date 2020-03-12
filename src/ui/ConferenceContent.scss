@@ -7,6 +7,14 @@
   h1 {
     font-size: 32px;
   }
+
+  h3 {
+    text-align: center;
+  }
+
+  :local(.card) {
+    padding: 40px;
+  }
 }
 
 :local(.centered) {
