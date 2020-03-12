@@ -26,36 +26,38 @@ export default class RoomManagementDialog extends Component {
     lines.shift();
 
     for (const line of lines) {
-      let [id, name, description, scene_id, group_order, room_order, public] = line.split("\t");
+      let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects] = line.split("\t");
       
       group_order = parseInt(group_order);
       room_order = parseInt(room_order);
-      public = public.toLowerCase() === "true";
+      spawn_and_move_media = spawn_and_move_media.toLowerCase() === "true";
+      spawn_camera = spawn_camera.toLowerCase() === "true";
+      spawn_drawing = spawn_drawing.toLowerCase() === "true";
+      pin_objects = pin_objects.toLowerCase() === "true";
+
+      const roomParams = {
+        name,
+        description,
+        scene_id,
+        user_data: {
+          group_order,
+          room_order
+        },
+        member_permissions: {
+          spawn_and_move_media,
+          spawn_camera,
+          spawn_drawing,
+          pin_objects
+        },
+        room_size,
+        allow_promotion: true
+      };
 
       if (id) {
-        await fetchReticulumAuthenticated(`/api/v1/hubs/${id}`, "PATCH", {
-          name,
-          description,
-          scene_id,
-          user_data: {
-            group_order,
-            room_order
-          },
-          public
-        });
+        await fetchReticulumAuthenticated(`/api/v1/hubs/${id}`, "PATCH", roomParams);
       } else {
-        await fetchReticulumAuthenticated(`/api/v1/hubs`, "POST", {
-          name,
-          description,
-          scene_id,
-          user_data: {
-            group_order,
-            room_order
-          },
-          public
-        });
+        await fetchReticulumAuthenticated(`/api/v1/hubs`, "POST", roomParams);
       }
-      
     }
 
     this.props.onClose();
@@ -65,13 +67,13 @@ export default class RoomManagementDialog extends Component {
     const rooms = await fetchReticulumAuthenticated("/api/v1/media/search?source=rooms&filter=public");
     const lines = [];
 
-    const header = ["Room Id", "Room Name", "Room Description", "Scene Id", "Group Order", "Room Order"];
+    const header = ["Room Id", "Room Name", "Room Description", "Scene Id", "Group Order", "Room Order", "Room Size", "Spawn and Move Media", "Spawn Camera", "Spawn Drawing", "Pin Objects"];
     lines.push(header.join("\t"));
 
-    for (let { id, name, description, scene_id, user_data} of rooms.entries) {
+    for (let { id, name, description, scene_id, user_data, room_size } of rooms.entries) {
       const groupOrder = user_data && user_data.group_order;
       const roomOrder = user_data && user_data.room_order;
-      const line = [id, name || "", description || "", scene_id || "", groupOrder || "", roomOrder || ""];
+      const line = [id, name || "", description || "", scene_id || "", groupOrder || "", roomOrder || "", room_size || "", "false", "false", "false", "false"];
       lines.push(line.join("\t"));
     }
 
