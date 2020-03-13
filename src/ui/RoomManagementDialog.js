@@ -3,6 +3,15 @@ import PropTypes from "prop-types";
 import DialogContainer from "../../hubs/src/react-components/dialog-container";
 import { fetchReticulumAuthenticated } from "../../hubs/src/utils/phoenix-utils";
 
+function parseTSVInt(value) {
+  const intVal = parseInt(value);
+  return isNaN(intVal) ? undefined : intVal;
+}
+
+function parseTSVBool(value) {
+  return value.toLowerCase() === "true"
+}
+
 
 export default class RoomManagementDialog extends Component {
   static propTypes = {
@@ -27,31 +36,25 @@ export default class RoomManagementDialog extends Component {
 
     for (const line of lines) {
       let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects] = line.split("\t");
-      
-      scene_id = scene_id || undefined;
-      group_order = parseInt(group_order);
-      room_order = parseInt(room_order);
-      spawn_and_move_media = spawn_and_move_media.toLowerCase() === "true";
-      spawn_camera = spawn_camera.toLowerCase() === "true";
-      spawn_drawing = spawn_drawing.toLowerCase() === "true";
-      pin_objects = pin_objects.toLowerCase() === "true";
 
       const roomParams = {
-        name,
-        description,
-        scene_id,
-        user_data: {
-          group_order,
-          room_order
-        },
-        member_permissions: {
-          spawn_and_move_media,
-          spawn_camera,
-          spawn_drawing,
-          pin_objects
-        },
-        room_size,
-        allow_promotion: true
+        hub: {
+          name,
+          description,
+          scene_id: scene_id || undefined,
+          user_data: {
+            group_order: parseTSVInt(group_order),
+            room_order: parseTSVInt(room_order)
+          },
+          member_permissions: {
+            spawn_and_move_media: parseTSVBool(spawn_and_move_media),
+            spawn_camera: parseTSVBool(spawn_camera),
+            spawn_drawing: parseTSVBool(spawn_drawing),
+            pin_objects: parseTSVBool(pin_objects)
+          },
+          room_size: parseTSVInt(room_size),
+          allow_promotion: true
+        }
       };
 
       if (id) {
