@@ -1,0 +1,24 @@
+diff --git a/webpack.config.js b/webpack.config.js
+index 91ae7226..8ecf262d 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -167,7 +167,7 @@ module.exports = (env, argv) => ({
+       },
+       {
+         test: /\.js$/,
+-        include: [path.resolve(__dirname, "src")],
++        include: [path.resolve(__dirname, "src"), path.resolve(__dirname, "..", "src")],
+         // Exclude JS assets in node_modules because they are already transformed and often big.
+         exclude: [path.resolve(__dirname, "node_modules")],
+         loader: "babel-loader"
+@@ -225,6 +225,10 @@ module.exports = (env, argv) => ({
+     ]
+   },
+ 
++  resolve: {
++    modules: [path.resolve(__dirname, "node_modules"), "node_modules"]
++  },
++
+   optimization: {
+     splitChunks: {
+       cacheGroups: {

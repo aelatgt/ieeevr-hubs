@@ -1,0 +1,12 @@
+diff --git a/src/assets/stylesheets/index.scss b/src/assets/stylesheets/index.scss
+index cafb7f2f..79d8bc6b 100644
+--- a/src/assets/stylesheets/index.scss
++++ b/src/assets/stylesheets/index.scss
+@@ -40,6 +40,7 @@ body {
+   min-height: 65px;
+   height: 65px;
+   display: flex;
++  color: white;
+ 
+   @media (max-width: 768px), (max-height: 480px) {
+     height: auto;
