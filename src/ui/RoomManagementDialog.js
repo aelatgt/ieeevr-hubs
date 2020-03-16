@@ -35,7 +35,7 @@ export default class RoomManagementDialog extends Component {
     lines.shift();
 
     for (const line of lines) {
-      let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects] = line.split("\t");
+      let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects, allow_promotion] = line.split("\t");
 
       const roomParams = {
         hub: {
@@ -53,7 +53,7 @@ export default class RoomManagementDialog extends Component {
             pin_objects: parseTSVBool(pin_objects)
           },
           room_size: parseTSVInt(room_size),
-          allow_promotion: true
+          allow_promotion: parseTSVBool(allow_promotion)
         }
       };
 
@@ -71,13 +71,13 @@ export default class RoomManagementDialog extends Component {
     const rooms = await fetchReticulumAuthenticated("/api/v1/media/search?source=rooms&filter=public");
     const lines = [];
 
-    const header = ["Room Id", "Room Name", "Room Description", "Scene Id", "Group Order", "Room Order", "Room Size", "Spawn and Move Media", "Spawn Camera", "Spawn Drawing", "Pin Objects"];
+    const header = ["Room Id", "Room Name", "Room Description", "Scene Id", "Group Order", "Room Order", "Room Size", "Spawn and Move Media", "Spawn Camera", "Spawn Drawing", "Pin Objects", "Public"];
     lines.push(header.join("\t"));
 
-    for (let { id, name, description, scene_id, user_data, room_size } of rooms.entries) {
+    for (let { id, name, description, scene_id, user_data, room_size, allow_promotion } of rooms.entries) {
       const groupOrder = user_data && user_data.group_order;
       const roomOrder = user_data && user_data.room_order;
-      const line = [id, name || "", description || "", scene_id || "", groupOrder || "", roomOrder || "", room_size || "", "false", "false", "false", "false"];
+      const line = [id, name || "", description || "", scene_id || "", groupOrder || "", roomOrder || "", room_size || "", "false", "false", "false", "false", allow_promotion || "true"];
       lines.push(line.join("\t"));
     }
 
