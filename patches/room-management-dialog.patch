@@ -11,7 +11,7 @@ index 6dd5d196..6430666c 100644
  addLocaleData([...en]);
  
  const isMobile = checkIsMobile();
-@@ -209,13 +211,23 @@ class HomeRoot extends Component {
+@@ -209,13 +211,25 @@ class HomeRoot extends Component {
                      </a>
                    </IfFeature>
                    {this.props.showAdmin && (

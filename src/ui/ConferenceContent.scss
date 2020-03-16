@@ -126,37 +126,48 @@
     margin: 0 8px 0 0;
   }
 
-  :local(.join-button) {
-    display: inline-block;
-    margin: 0 0 0 12px;
-    text-decoration: none;
-    width: 80px;
-    text-align: center;
-    padding: 4px 0;
-    color: white;
-    border-radius: 4px;
-    background-color: #D11313;
-
-    &:hover {
-      background-color: #E81515;
-    }
-
-    &:active {
-      background-color: #C11212;;
-    }
-  }
-
-  :local(.join-button-disabled) {
-    color: black;
-    background-color: #909090;
-    cursor: default;
-
-    &:hover, &:active {
-      background-color: #909090;
-    }
-  }
-
   svg {
     margin-right: 6px;
   }
+}
+
+:local(.join-button) {
+  display: inline-block;
+  margin: 0 0 0 12px;
+  text-decoration: none;
+  width: 80px;
+  text-align: center;
+  padding: 4px 0;
+  color: white;
+  border-radius: 4px;
+  background-color: #D11313;
+
+  &:hover {
+    background-color: #E81515;
+  }
+
+  &:active {
+    background-color: #C11212;;
+  }
+}
+
+:local(.join-button-disabled) {
+  color: black;
+  background-color: #909090;
+  cursor: default;
+
+  &:hover, &:active {
+    background-color: #909090;
+  }
+}
+
+:local(.create-room-button) {
+  display: block;
+  border: none;
+  border-radius: 1.5em;
+  font-size: 1.5em;
+  margin: 40px auto 0 auto;
+  padding: 10px 20px;
+  width: auto;
+  cursor: pointer;
 }

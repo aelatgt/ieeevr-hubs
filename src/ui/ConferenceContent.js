@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
 import configs from "../../hubs/src/utils/configs";
+import { createAndRedirectToNewHub } from "../../hubs/src/utils/phoenix-utils";
 
 const maxRoomCap = configs.feature("max_room_cap") || 50;
 
@@ -151,6 +152,15 @@ export default function ConferenceContent({ featuredRooms }) {
             <h1>Virtual Rooms</h1>
           </div>
           {groupFeaturedRooms(featuredRooms).map((group) => <ConferenceRoomGroup key={group.name} group={group} />)}
+          <button
+            className={classNames(styles.joinButton, styles.createRoomButton)}
+            onClick={e => {
+              e.preventDefault();
+              createAndRedirectToNewHub(null, null, false);
+            }}
+          >
+            Create Room
+          </button>
         </div>
       </section>
     </main>
