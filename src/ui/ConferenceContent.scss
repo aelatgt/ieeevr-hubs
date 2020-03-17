@@ -12,11 +12,15 @@
     text-align: center;
   }
 
+  p {
+    text-align: left;
+  }
+
   :local(.card) {
     padding: 40px;
 
     @media (max-width: 1024px) {
-      padding: 8px;
+      padding: 12px;
     }
   }
 }
@@ -34,6 +38,7 @@
   :local(.logo-container) {
     max-width: 400px;
     padding: 40px;
+    margin: auto;
   }
 
   img {
@@ -51,7 +56,7 @@
   padding: 60px;
 
   @media (max-width: 1024px) {
-    padding: 8px;
+    padding: 12px;
   }
 }
 
@@ -63,7 +68,7 @@
   margin: 8px;
 
   @media (max-width: 1024px) {
-    padding: 8px;
+    padding: 12px;
     text-align: center;
   }
 }
