@@ -131,7 +131,7 @@ export default function ConferenceContent({ featuredRooms }) {
     <main className={styles.conferenceContent}>
       <section className={styles.heroContainer}>
         <div className={styles.contentContainer}>
-          <div className={styles.centered}>
+          <div className={classNames(styles.logoContainer, styles.centered)}>
             <img src={configs.image("logo")} />
           </div>
         </div>
