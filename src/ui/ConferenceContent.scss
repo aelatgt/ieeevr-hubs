@@ -66,10 +66,12 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding: 20px;
   margin: 8px;
+  width: 100%;
 
   @media (max-width: 1024px) {
     padding: 12px;
     text-align: center;
+    width: auto;
   }
 }
 

@@ -126,7 +126,7 @@ function ConferenceRoomGroup({ group }) {
   )
 }
 
-export default function ConferenceContent({ featuredRooms }) {
+export default function ConferenceContent({ publicRooms, favoritedRooms }) {
   return (
     <main className={styles.conferenceContent}>
       <section className={styles.heroContainer}>
@@ -148,10 +148,16 @@ export default function ConferenceContent({ featuredRooms }) {
       </section>
       <section>
         <div className={styles.contentContainer}>
+          {favoritedRooms && favoritedRooms.length > 0 && (
+            <div className={styles.centered}>
+              <h1>Favorite Rooms</h1>
+              {groupFeaturedRooms(favoritedRooms).map((group) => <ConferenceRoomGroup key={group.name} group={group} />)}
+            </div>
+          )}
           <div className={styles.centered}>
             <h1>Virtual Rooms</h1>
           </div>
-          {groupFeaturedRooms(featuredRooms).map((group) => <ConferenceRoomGroup key={group.name} group={group} />)}
+          {groupFeaturedRooms(publicRooms).map((group) => <ConferenceRoomGroup key={group.name} group={group} />)}
           <button
             className={classNames(styles.joinButton, styles.createRoomButton)}
             onClick={e => {

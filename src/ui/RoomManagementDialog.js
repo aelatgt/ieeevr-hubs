@@ -9,7 +9,7 @@ function parseTSVInt(value) {
 }
 
 function parseTSVBool(value) {
-  return value.toLowerCase() === "true"
+  return value.toLowerCase().trim() === "true"
 }
 
 
@@ -34,6 +34,10 @@ export default class RoomManagementDialog extends Component {
     const lines = tsv.split("\n");
     lines.shift();
 
+    const newLines = [];
+    const header = ["Room Id", "Room Name", "Room Description", "Scene Id", "Group Order", "Room Order", "Room Size", "Spawn and Move Media", "Spawn Camera", "Spawn Drawing", "Pin Objects", "Public"];
+    newLines.push(header.join("\t"));
+
     for (const line of lines) {
       let [id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects, allow_promotion] = line.split("\t");
 
@@ -57,12 +61,29 @@ export default class RoomManagementDialog extends Component {
         }
       };
 
+      let new_id = id;
+
       if (id) {
         await fetchReticulumAuthenticated(`/api/v1/hubs/${id}`, "PATCH", roomParams);
       } else {
-        await fetchReticulumAuthenticated(`/api/v1/hubs`, "POST", roomParams);
+        const res = await fetchReticulumAuthenticated(`/api/v1/hubs`, "POST", roomParams);
+        new_id = res.hub_id;
       }
+
+      const newLine = [new_id, name, description, scene_id, group_order, room_order, room_size, spawn_and_move_media, spawn_camera, spawn_drawing, pin_objects, allow_promotion];
+      newLines.push(newLine.join("\t"));
+
+      await new Promise(resolve => setTimeout(resolve, 2500));
     }
+
+    const newTsv = newLines.join("\n");
+
+    const blob = new Blob([newTsv], { type: "text/tsv" });
+
+    const downloadEl = document.createElement("a");
+    downloadEl.download = "room-list.tsv";
+    downloadEl.href = URL.createObjectURL(blob);
+    downloadEl.click();
 
     this.props.onClose();
   };

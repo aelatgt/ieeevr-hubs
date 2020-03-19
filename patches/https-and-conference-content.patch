@@ -1,0 +1,177 @@
+diff --git a/src/assets/stylesheets/root-vars.scss b/src/assets/stylesheets/root-vars.scss
+index 782afe6c..6443d8ea 100644
+--- a/src/assets/stylesheets/root-vars.scss
++++ b/src/assets/stylesheets/root-vars.scss
+@@ -88,9 +88,10 @@
+   --chat-popup-background-color: #{$darker-grey};
+   --chat-popup-text-color: #{$light-text};
+   --home-background-color: white;
+-  --home-header-background-color: white;
++  --home-header-background-color: #343A40;
+   --home-footer-background-color: white;
+-  --home-header-link-color: black;
++  --home-header-link-color: white;
++  --home-header-text-color: white;
+   --home-footer-text-color: black;
+   --home-footer-link-color: #{$dark-grey};
+   --home-text-color: black;
+diff --git a/src/index.js b/src/index.js
+index 423afb79..b7524c29 100644
+--- a/src/index.js
++++ b/src/index.js
+@@ -22,7 +22,8 @@ window.APP = { store };
+ 
+ const authChannel = new AuthChannel(store);
+ let installEvent = null;
+-let featuredRooms = null;
++let favoritedRooms = null;
++let publicRooms = null;
+ let mountedUI = false;
+ let hideHero = true;
+ let showAdmin = false;
+@@ -47,7 +48,8 @@ const remountUI = function() {
+       hideHero={hideHero}
+       showAdmin={showAdmin}
+       showCreate={showCreate}
+-      featuredRooms={featuredRooms}
++      favoritedRooms={favoritedRooms}
++      publicRooms={publicRooms}
+       installEvent={installEvent}
+     />
+   );
+@@ -79,20 +81,53 @@ window.addEventListener("beforeinstallprompt", e => {
+   }
+ });
+ 
++async function fetchFavoritedRooms() {
++  if (!authChannel.signedIn) {
++    favoritedRooms = [];
++    return;
++  }
++
++  const res = await fetchReticulumAuthenticated(
++    `/api/v1/media/search?source=favorites&type=rooms&user=${store.credentialsAccountId}`
++  )
++
++  favoritedRooms = res.entries;
++}
++
++async function fetchPublicRooms() {
++  let hasMore = true;
++  const results = [];
++
++  const queryParams = new URLSearchParams();
++  queryParams.set("source", "rooms");
++  queryParams.set("filter", "public");
++
++  while (hasMore) {
++
++    const res = await fetchReticulumAuthenticated(`/api/v1/media/search?${queryParams}`);
++
++    for (const entry of res.entries) {
++      if (!results.find(item => item.id === entry.id)) {
++        results.push(entry);
++      } else {
++        console.log(`Duplicate page: ${queryParams.get("cursor")} id: ${entry.id}`);
++      }
++    }
++
++    queryParams.set("cursor", res.meta.next_cursor);
++    hasMore = !!res.meta.next_cursor;
++  }
++
++  publicRooms = results;
++}
++
+ // Fetch favorite + public rooms and merge, sorting by member count
+ async function fetchFeaturedRooms() {
+-  const [favoriteRoomsResult, publicRoomsResult] = await Promise.all([
+-    authChannel.signedIn
+-      ? fetchReticulumAuthenticated(
+-          `/api/v1/media/search?source=favorites&type=rooms&user=${store.credentialsAccountId}`
+-        )
+-      : Promise.resolve({ entries: [] }),
+-    fetchReticulumAuthenticated("/api/v1/media/search?source=rooms&filter=public")
++  await Promise.all([
++    fetchFavoritedRooms(),
++    fetchPublicRooms()
+   ]);
+ 
+-  const entries = [...publicRoomsResult.entries, ...favoriteRoomsResult.entries];
+-  const ids = entries.map(h => h.id);
+-  featuredRooms = entries.filter((h, i) => ids.lastIndexOf(h.id) === i).sort((a, b) => b.member_count - a.member_count);
+   remountUI();
+ }
+ 
+diff --git a/src/react-components/home-root.js b/src/react-components/home-root.js
+index 6dd5d196..07654952 100644
+--- a/src/react-components/home-root.js
++++ b/src/react-components/home-root.js
+@@ -28,6 +28,8 @@ import AuthDialog from "./auth-dialog.js";
+ import SignInDialog from "./sign-in-dialog.js";
+ import MediaTiles from "./media-tiles";
+ 
++import ConferenceContent from "../../../src/ui/ConferenceContent";
++
+ addLocaleData([...en]);
+ 
+ const isMobile = checkIsMobile();
+@@ -46,8 +48,8 @@ class HomeRoot extends Component {
+     hideHero: PropTypes.bool,
+     showAdmin: PropTypes.bool,
+     showCreate: PropTypes.bool,
+-    featuredRooms: PropTypes.array,
+-    publicRoomsResult: PropTypes.object,
++    publicRooms: PropTypes.array,
++    favoritedRooms: PropTypes.array,
+     showSignIn: PropTypes.bool,
+     signInDestination: PropTypes.string,
+     signInDestinationUrl: PropTypes.string,
+@@ -236,46 +238,7 @@ class HomeRoot extends Component {
+                 )}
+               </div>
+             </div>
+-            <div className={styles.heroContent} style={{ backgroundImage: configs.image("home_background", true) }}>
+-              {!this.props.hideHero &&
+-                (this.props.featuredRooms && this.props.featuredRooms.length > 0
+-                  ? this.renderFeaturedRoomsHero()
+-                  : this.renderNonFeaturedRoomsHero())}
+-              {!this.props.hideHero && (
+-                <div className={classNames(styles.heroPanel, styles.rightPanel)}>
+-                  {showFTUEVideo && (
+-                    <div className={styles.heroVideo}>
+-                      <video playsInline muted loop autoPlay>
+-                        <source src={homeVideoWebM} type="video/webm" />
+-                        <source src={homeVideoMp4} type="video/mp4" />
+-                      </video>
+-                    </div>
+-                  )}
+-                  <div>
+-                    <div className={styles.secondaryLink}>
+-                      <a href="/link">
+-                        <FormattedMessage id="home.have_code" />
+-                      </a>
+-                    </div>
+-
+-                    <IfFeature name="show_discord_bot_link">
+-                      <div className={styles.secondaryLink}>
+-                        <div>
+-                          <FormattedMessage id="home.add_to_discord_1" />
+-                        </div>
+-                        <img src={discordLogoSmall} />
+-                        <a href="/discord">
+-                          <FormattedMessage id="home.add_to_discord_2" />
+-                        </a>
+-                        <div>
+-                          <FormattedMessage id="home.add_to_discord_3" />
+-                        </div>
+-                      </div>
+-                    </IfFeature>
+-                  </div>
+-                </div>
+-              )}
+-            </div>
++            <ConferenceContent publicRooms={this.props.publicRooms} favoritedRooms={this.props.favoritedRooms} />
+             <div className={styles.footerContent}>
+               <div className={styles.poweredBy}>
+                 <UnlessFeature name="hide_powered_by">
