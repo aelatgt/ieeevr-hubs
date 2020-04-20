@@ -7,6 +7,7 @@ AFRAME.registerSystem('clock', {
     var textures = this.textures = []
     const loader = new THREE.TextureLoader();
     for (var i = 0; i < 10; i++) {
+      this.textures.push(loader.load('src/' + i+ '.png'));
     }
 		const clockGeo = new THREE.CircleGeometry(this.clockR, 36);
 		const clockMat = new THREE.MeshBasicMaterial( {
